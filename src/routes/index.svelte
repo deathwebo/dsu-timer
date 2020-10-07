@@ -1,46 +1,30 @@
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
-</style>
-
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>DSU Timer</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<script>
+import { writable } from 'svelte/store';
 
-<figure>
-	<img alt='Success Kid' src='successkid.jpg'>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
+let member = writable("")
+const members = writable([])
+function handleClick() {
+	$members = [...$members, $member];
+	$member = ""
+}
+</script>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<style>
+  .content {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-column-gap: 10px;
+  }
+</style>
+
+<h1>Form</h1>
+<label>Team member name:</label>
+<input type="text" bind:value={$member} />
+<button on:click={handleClick}>Add member</button>
+
+<p>{JSON.stringify($members)}</p>
+
