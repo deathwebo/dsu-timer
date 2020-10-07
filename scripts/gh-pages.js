@@ -4,7 +4,7 @@ ghpages.publish(
     '__sapper__/export/dsu-timer',
     {
         branch: 'gh-pages',
-        repo: 'https://github.com/deathwebo/dsu-timer.git',
+        repo: 'git@github.com:deathwebo/dsu-timer.git',
         user: {
             name: 'Erick M',
             email: 'tony3c24@gmail.com'
